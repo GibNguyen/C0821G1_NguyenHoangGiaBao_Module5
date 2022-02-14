@@ -1,0 +1,59 @@
+
+
+<form [formGroup]="registerForm" >
+  <div>
+    <p>Email : </p>
+    <input type="text" formControlName="email">
+  </div>
+<p style="color:red"
+*ngIf="registerForm.controls.email.hasError('required')&&registerForm.controls.email.touched">Please input Email</p>
+  <p style="color:red"
+     *ngIf="registerForm.controls.email.hasError('email')">Invalid Email</p>
+  <div>
+    <p>Password : </p>
+    <input type="password" formControlName="pass">
+  </div>
+  <p style="color:red"
+     *ngIf="registerForm.controls.pass.hasError('required')&&registerForm.controls.pass.touched">Please input Pass</p>
+  <p style="color:red"
+     *ngIf="registerForm.controls.pass.hasError('minlength')">Pass must over 6 char</p>
+  <div>
+    <p>Password Confirm : </p>
+    <input type="password" formControlName="passConfirm">
+  </div>
+  <p style="color:red"
+     *ngIf="registerForm.controls.passConfirm.hasError('required')&&registerForm.controls.passConfirm.touched">Please input Pass</p>
+  <p style="color:red"
+     *ngIf="registerForm.controls.passConfirm.hasError('minlength')">Pass must over 6 char</p>
+  <div>
+    <p>Country</p>
+    <select formControlName="country">
+      <option></option>
+      <option>Việt Nam</option>
+      <option>Trung Quốc</option>
+      <option>Nhật Bản</option>
+    </select>
+    <p style="color:red"
+       *ngIf="registerForm.controls.country.hasError('required')&&registerForm.controls.country.touched">Please choose Country</p>
+  </div>
+  <div>
+    <p>Age</p>
+    <input type="number" formControlName="age">
+  </div>
+  <p style="color:red"
+     *ngIf="registerForm.controls.age.hasError('required')&&registerForm.controls.age.touched">Please input your Age</p>
+  <p style="color:red"
+     *ngIf="registerForm.controls.age.hasError('min')">Age must over 18</p>
+  <div>
+    <input name="gender" type="radio" value="Nam" />Nam
+    <input name="gender" type="radio" value="Nữ" />Nữ
+  </div>
+  <div>
+    <p>Phone</p>
+    <input type="text" formControlName="phone">
+  </div>
+  <p style="color:red"
+     *ngIf="registerForm.controls.phone.hasError('required')&&registerForm.controls.phone.touched">Please input your Phone</p>
+  <p style="color:red"
+     *ngIf="registerForm.controls.phone.hasError('pattern')">Invalid Phone(Must have +84 and 9 or 10 numbers)</p>
+</form>
