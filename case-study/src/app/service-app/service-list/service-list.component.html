@@ -1,0 +1,44 @@
+<h2 style="text-align: center">SERVICE LIST</h2>
+<div>
+  <button  class="btn btn-primary btn-lg" routerLink="/service/create">Create Service</button>
+</div>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Service ID</th>
+    <th scope="col">Service Code</th>
+    <th scope="col">Service Name</th>
+    <th scope="col">Area</th>
+    <th scope="col">Number Of Floor</th>
+    <th scope="col">Max People</th>
+    <th scope="col">Price</th>
+    <th scope="col">Rent Type</th>
+    <th scope="col">Status</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
+  <tbody style="background-color: #f7f5f2">
+  <tr *ngFor="let service of serviceList">
+    <td>{{service.id}}</td>
+    <td>{{service.code}}</td>
+    <td>{{service.name}}</td>
+    <td>{{service.area}}</td>
+    <td>{{service.numberFloor}}</td>
+    <td>{{service.maxPeople}}</td>
+    <td>{{service.price}}</td>
+    <td>{{service.rentType.name}}</td>
+    <td>{{service.status}}</td>
+    <td>
+      <button class="btn btn-primary btn-warning" type="button"><a style="color: black">Edit</a>
+      </button>
+    </td>
+    <td>
+      <button class="btn btn-primary btn-danger">
+        <a style="color: black" routerLink="/service/delete/{{this.service.id}}">Delete</a>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
